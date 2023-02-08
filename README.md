@@ -14,7 +14,6 @@ Vue3全家桶 + Scss + Axios + Webpack
 |-- package.json
 |-- README.md
 |-- vue.config.js
-|-- dist
 |-- public
 |   |-- favicon.ico
 |   |-- index.html
