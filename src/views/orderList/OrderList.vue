@@ -39,14 +39,14 @@
 
 <script>
 import { reactive, toRefs } from 'vue'
-import { get } from '@/utils/request'
+import api from '../../api'
 import Docker from '../../components/Docker'
 
 // 处理订单列表逻辑
 const useOrderListEffect = () => {
   const data = reactive({ list:[]})
   const getNearbyList = async () => {
-    const result = await get('/api/order')
+    const result = await api.getOrderList('/api/order')
     if (result?.errno === 0 && result?.data?.length) {
       const orderList = result.data
       orderList.forEach((order) => {

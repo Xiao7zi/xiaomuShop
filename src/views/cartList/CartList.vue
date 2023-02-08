@@ -1,17 +1,19 @@
 <template>
   <div class="wrapper">
     <div class="topArea">
-      <p class="topArea__title">我的全部购物车（{{shopCount}}）</p>
+      <p class="topArea__title">我的全部购物车（{{ shopCount }}）</p>
     </div>
+    <!-- 购物车 -->
     <ProductListOfCart />
   </div>
-  <Docker :currentIndex="1"/>
+  <!-- 底部导航栏 -->
+  <Docker :currentIndex="1" />
 </template>
 
 <script>
 import Docker from "../../components/Docker.vue";
 import ProductListOfCart from "./ProductListOfCart.vue";
-import {useNewCartListEffect} from "../../effects/newCartListEffect";
+import { useNewCartListEffect } from "../../effects/newCartListEffect";
 
 export default {
   name: 'CartList',
@@ -20,16 +22,17 @@ export default {
     ProductListOfCart
   },
   setup() {
-    const {createNewCartList} = useNewCartListEffect()
+    const { createNewCartList } = useNewCartListEffect()
 
     // 返回页面顶部的商家数量
-    return {shopCount: Object.keys(createNewCartList()).length}
+    return { shopCount: Object.keys(createNewCartList()).length }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../style/viriables.scss';
+
 .allTransition {
   transition: all 1s;
 }
@@ -49,6 +52,7 @@ export default {
   text-align: center;
   line-height: .44rem;
   background: $bgColor;
+
   &__title {
     margin: 0;
     font-size: .16rem;

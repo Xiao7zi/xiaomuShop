@@ -34,7 +34,7 @@
 <script>
 import { useRouter } from 'vue-router';
 import { reactive, toRefs } from 'vue'
-import { post } from '../../utils/request'
+import api from '../../api';
 import Toast, { useToastEffect } from '../../components/Toast'
 
 // 处理注册相关逻辑
@@ -48,7 +48,7 @@ const useRegisterEffect = (showToast) => {
 
   const handleRegister = async () => {
     try {
-      const result = await post('/api/user/register', {
+      const result = await api.userRegister('/api/user/register', {
         username: data.username,
         password: data.password
       })

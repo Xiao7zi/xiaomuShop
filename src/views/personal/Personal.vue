@@ -6,7 +6,7 @@
       <div class="top__profile">
         <img class="top__profile__image" src="../../assets/img/avatar.jpg" alt="">
         <p class="top__profile__name">
-          热心市民李先生
+          慕小梓
         </p>
         <div class="top__profile__stars">
           <img src="../../assets/img/star.png" class="top__profile__stars__icon" alt="">

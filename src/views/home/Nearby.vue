@@ -13,13 +13,13 @@
 
 <script>
 import { ref } from 'vue'
-import { get } from '../../utils/request'
+import api from '../../api';
 import ShopInfo from '../../components/ShopInfo'
 
 const useNearbyListEffect = () => {
   const nearbyList = ref([]);
   const getNearbyList = async () => {
-    const result = await get('/api/shop/hot-list')
+    const result = await api.getNearByList('/api/shop/hot-list')
     if (result?.errno === 0 && result?.data?.length) {
       nearbyList.value = result.data
     }

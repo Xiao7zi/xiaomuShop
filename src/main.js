@@ -5,4 +5,9 @@ import store from './store'
 import 'normalize.css'
 import './style/index.scss'
 
-createApp(App).use(router).use(store).mount('#app')
+const app = createApp(App)
+
+app
+    .use(router)
+    .use(store)
+    .mount('#app')

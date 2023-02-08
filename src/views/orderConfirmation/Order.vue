@@ -43,7 +43,7 @@
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { post } from '@/utils/request'
+import api from '../../api'
 import { useCommonCartEffect } from '@/effects/cartEffects'
 import Toast, { useToastEffect } from "@/components/Toast";
 
@@ -59,7 +59,7 @@ const useMakeOrderEffect = (shopId, shopName, productList, showToast, handleShow
       products.push({id: parseInt(product._id, 10), num: product.count})
     }
     try {
-      const result = await post('/api/order', {
+      const result = await api.commitOrder('/api/order', {
         addressId: 1,
         shopId,
         shopName: shopName.value,

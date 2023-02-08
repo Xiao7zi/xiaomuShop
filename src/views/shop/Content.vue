@@ -45,7 +45,7 @@
 import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { get } from '../../utils/request'
+import api from '../../api'
 import { useCommonCartEffect } from '../../effects/cartEffects'
 
 const categories = [
@@ -67,7 +67,7 @@ const useTabEffect = () => {
 const useCurrentListEffect = (currentTab, shopId) => {
   const content = reactive({ list: [] })
   const getContentData = async () => {
-    const result = await get(`/api/shop/${shopId}/products`, {
+    const result = await api.getProducts(`/api/shop/${shopId}/products`, {
       tab: currentTab.value
     })
     if(result?.errno === 0 && result?.data?.length) {
